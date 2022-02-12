@@ -19,7 +19,8 @@
     "lint": "eslint --ext js,jsx src/",
     "lint:fix": "eslint --fix --ext js,jsx src/",
     "prettier": "prettier --check \"src/**/(**.jsx|*.js|*.scss|*.css)\"",
-    "prettier:fix": "prettier --write \"src/**/(**.jsx|*.js|*.scss|*.css)\""
+    "prettier:fix": "prettier --write \"src/**/(**.jsx|*.js|*.scss|*.css)\"",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -27,12 +28,7 @@
       "react-app/jest"
     ]
   },
-  "lint-staged" : "npm run prettier:fix",
-  "husky" : {
-    "hooks" : {
-      "pre-commit" : "lint-staged"
-    }
-  },
+  "lint-staged": "npm run lint:fix && git add .",
   "browserslist": {
     "production": [
       ">0.2%",
